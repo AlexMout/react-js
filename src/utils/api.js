@@ -6,7 +6,7 @@ import * as request from 'request-promise'
 
 export const ENDPOINTS = {
 
-    WEATHER_API_URL: 'http://api.apixu.com/v1/current.json'
+    API_URL: 'http://www.omdbapi.com/?t='
 
 }
 

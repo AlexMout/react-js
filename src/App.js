@@ -4,7 +4,7 @@ import React, { Component } from 'react'
 import logo from './logo.svg'
 import './App.css'
 
-const APP_TITLE = 'Awesome App'
+const APP_TITLE = 'Film documentation App'
 //update document title (displayed in the opened browser tab)
 document.title = APP_TITLE
 
@@ -12,7 +12,7 @@ document.title = APP_TITLE
 import { get, ENDPOINTS } from './utils/api'
 
 //components
-import WeatherCard from './components/WeatherCard'
+import FilmCard from './components/FilmCard'
 
 class App extends Component {
 
@@ -21,8 +21,15 @@ class App extends Component {
     constructor( props ) {
         super( props )
         this.state = {
-            weather: undefined
+            film: undefined,
+            filmName: ""
         }
+    }
+
+    replaceFilm = (event) => {
+        this.setState({ 
+            filmName: event.target.value
+        })
     }
 
 
@@ -36,11 +43,12 @@ class App extends Component {
 
                 <div className="App-content">
                     <div className="center-align">
-
-                        {/* button onClick event calls the fetchWeather method */ }
-
+                        
+                        <h1>Indicate the name of a movie below :</h1>
+                        <input type="text" value={this.state.value} onChange={this.replaceFilm} />
+     
                         <button onClick={ this.fetchWeather } className="waves-effect waves-light btn">
-                            Weather?
+                            Get informations !
                         </button>
 
                     </div>
@@ -64,16 +72,14 @@ class App extends Component {
         /* ASYNC - AWAIT DOCUMENTATION : https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Op%C3%A9rateurs/await */
 
         try {
-            const weather = await get( ENDPOINTS.WEATHER_API_URL, {
-                //YOU NEED TO PROVIDE YOUR API KEY HERE
-                key: undefined,
-                q: 'Paris'
+            const film = await get( ENDPOINTS.API_URL + this.state.filmName.replace(" ","+"), {
+                q: this.state.filmName
             })
 
             /* React state DOCUMENTATION : https://facebook.github.io/react/docs/lifting-state-up.html */
 
             this.setState( {
-                weather
+                film
             })
         }
         catch ( error ) {
@@ -81,15 +87,15 @@ class App extends Component {
         }
 
     }
-
+    
 
     //handle display of the received weather object
     displayWeatherInfo = () => {
-        const weather = this.state.weather
+        const film = this.state.film
 
-        if ( weather ) {
+        if ( film ) {
             return (
-                <WeatherCard data={ weather } />
+                <FilmCard data={ film } />
             )
         }
 
