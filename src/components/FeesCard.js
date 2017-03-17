@@ -26,8 +26,23 @@ class FeesCard extends Component {
             return n*0.00000001
         }
 
-        //using map function : 
+        //using MAP function : 
         feesBTC = feesBTC.map(convertSatoIntoBTC)
+
+        //using FILTER function :
+        function feeMax(value){
+            //Thresold given by hand
+            return value <=0.00000200
+        }
+        
+        var feesLessThan200 = feesBTC.filter(feeMax)
+        //If the array contains at least 1 value, the transaction is possible
+        var transactionPossible = "Transaction possible"
+
+        
+        if (feesLessThan200.length ==0){
+            transactionPossible = "Transaction impossible"
+        }
 
         return (
             <div className="card horizontal" style={ { margin: 'auto' } }>
@@ -67,7 +82,15 @@ class FeesCard extends Component {
                                 <br/>
                                 Equals : 
                                 <span>{ feesBTC[2].toFixed(8) } BTC</span>
-                            </p>          
+                            </p>   
+
+                            <p>
+                                <i className="material-icons">info</i>
+                                Transaction possible under 200 satoshis ?
+                                <br/>
+                                Equals : 
+                                <span>{ transactionPossible }</span>
+                            </p>    
                         </div>
 
                     </div>

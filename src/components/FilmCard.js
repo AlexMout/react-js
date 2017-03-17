@@ -31,6 +31,8 @@ class FilmCard extends Component {
     render() {
         
         const film = this.props.data    
+        
+        
 
         return (
             <div className="card horizontal" style={ { margin: 'auto' } }>
