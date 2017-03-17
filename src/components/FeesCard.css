@@ -1,25 +1,27 @@
-.film-icon {
+.fees-icon {
+    animation: BTC-logo-spin infinite 20s linear;
     position: absolute;
     right: 10px;
     top: 10px;
 }
 
-.film-data {
+.fees-data {
     padding-right: 60px;
     font-size: 125%;
 }
 
-.film-data i {
+.fees-data i {
     margin-right: 5px;
     color: #ffab40;
     vertical-align: middle;
 }
 
-.film-data p {
+.fees-data p {
     margin-bottom: 15px !important;
 }
 
-.film-title { 
+
+.fees-title { 
 color: #111;
 font-family: 'Open Sans Condensed', sans-serif;
 font-size: 22px;
@@ -30,8 +32,10 @@ padding: 20px 30px;
 text-align: center; 
 text-transform: uppercase; }
 
-.film-city {
-    font-size: 22px;
-    pointer-events: none;
-}
 
+
+
+@keyframes BTC-logo-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}

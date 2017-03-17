@@ -27,6 +27,21 @@
     padding: 20px;
 }
 
+.App-title{
+    color: #111;
+    font-family: 'Open Sans Condensed',sans-serif;
+    font-size: 48px; 
+    font-weight: 700; 
+    line-height: 48px; 
+    margin: 0 0 24px; 
+    padding: 0 30px; 
+    text-align: center; 
+    text-transform: uppercase;
+}
+
+
+
+
 @keyframes App-logo-spin {
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }

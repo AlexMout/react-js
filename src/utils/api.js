@@ -6,8 +6,8 @@ import * as request from 'request-promise'
 
 export const ENDPOINTS = {
 
-    API_URL: 'http://www.omdbapi.com/?t='
-
+    API_URL: 'http://www.omdbapi.com/?t=',
+    API_URL2: 'https://bitcoinfees.21.co/api/v1/fees/recommended'
 }
 
 /* REQUEST (Promise) DOCUMENTATION */
@@ -21,5 +21,5 @@ export function get( url, queryParameters ) {
         json: true,
         uri: url,
         qs: queryParameters
-    })
+    } )
 }

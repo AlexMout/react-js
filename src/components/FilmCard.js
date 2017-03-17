@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
 
-//import picture from './img/paris.jpg'
-
 import './FilmCard.css'
 
 class FilmCard extends Component {
@@ -31,8 +29,8 @@ class FilmCard extends Component {
 
 
     render() {
-
-        const film = this.props.data
+        
+        const film = this.props.data    
 
         return (
             <div className="card horizontal" style={ { margin: 'auto' } }>
@@ -42,8 +40,8 @@ class FilmCard extends Component {
                 <div className="card-stacked">
                     <div className="card-content">
 
-                        <div className="weather-data">
-                            <h3>Informations</h3>
+                        <div className="film-data">
+                            <h3 className="film-title">Informations</h3>
                             <p>
                                 <i className="material-icons">info</i>
                                 Durée : 
@@ -69,6 +67,7 @@ class FilmCard extends Component {
                                 Acteurs : 
                                 <span>{ film.Actors }</span>
                             </p>
+
                             <p>
                                 <i className="material-icons">info</i>
                                 Languages : 
@@ -80,7 +79,7 @@ class FilmCard extends Component {
                         
                     </div>
                     <div className="card-action center-align">
-                        <a className="weather-city" href="#" onClick={ e => e.preventDefault() }>{ film.Title}</a>
+                        <a className="film-city" href="#" onClick={ e => e.preventDefault() }>{ film.Title}</a>
                     </div>
                 </div>
             </div>
